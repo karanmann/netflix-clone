@@ -1,10 +1,11 @@
-import type { NextPage } from "next";
+
 import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
 import requests from "../utils/requests";
 
-const Home: NextPage = () => {
+const Home: React.FC = ({ netflixOriginals }) => {
+  console.log(netflixOriginals)
   return (
     <div className="relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]">
       <Head>
