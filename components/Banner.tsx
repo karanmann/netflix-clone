@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import Image from 'next/image'
-const Banner = () => {
+import { Movie } from "../typings";
+interface Props {
+  netflixOriginals: Movie[]
+}
+
+const Banner = ({netflixOriginals}: Props) => {
+  const [movie, setMovie] = useState<Movie | null>(null)
+
+  useEffect(()=> {
+    setMovie(netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)])
+  },[netflixOriginals])
+
+  console.log(movie)
   return (
     <div>
       <div>
-        {/* <img
-          src="https://cdn.sstatic.net/Img/teams/teams-illo-free-sidebar-promo.svg?v=47faa659a05e"
-          alt="#"
-          height="200"
-          width="200"
-        /> */}
+        <Image src="" alt="" className=""/>
       </div>
     </div>
   );

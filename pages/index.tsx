@@ -32,7 +32,7 @@ const Home = ({
       </Head>
       <Header />
       <main>
-        <Banner />
+        <Banner netflixOriginals={netflixOriginals}/>
         <section>{/* CONTENT */}</section>
       </main>
       {/* MODAL */}
