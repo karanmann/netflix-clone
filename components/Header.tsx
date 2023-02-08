@@ -1,9 +1,28 @@
-import React from 'react'
-import { BellIcon, SearchIcon } from '@heroicons/react/solid'
-import Link from 'next/link';
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { BellIcon, SearchIcon } from "@heroicons/react/solid";
+
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    // It is important to remove the eventlistner to clean up the code
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header>
+    <header className={`${isScrolled && "bg-[#141414]"}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
         <img
           src="https://rb.gy/ulxxee"
@@ -34,6 +53,6 @@ const Header = () => {
       </div>
     </header>
   );
-}
+};
 
-export default Header
+export default Header;
