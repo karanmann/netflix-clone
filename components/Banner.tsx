@@ -24,7 +24,7 @@ const Banner = ({netflixOriginals}: Props) => {
             src={`${BASE_URL}${movie?.backdrop_path || movie?.poster_path}`}
             className="object-cover"
             alt="movie banner"
-            sizes="100vh"
+            sizes="100vw"
             priority
             fill
           />
