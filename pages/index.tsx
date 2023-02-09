@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import Header from "../components/Header";
 import requests from "../utils/requests";
 import { Movie } from "../typings";
+import Row from "../components/Row";
 interface Props {
   netflixOriginals: Movie[];
   trendingNow: Movie[];
@@ -31,9 +32,18 @@ const Home = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main>
-        <Banner netflixOriginals={netflixOriginals}/>
-        <section>{/* CONTENT */}</section>
+      <main className="relative pb-24 pl-4 lg:space-y-24 lg:pl-16">
+        <Banner netflixOriginals={netflixOriginals} />
+        <section>
+          <Row title="Trending Now" movies={trendingNow} />
+          <Row title="Top Rated" movies={topRated} />
+          <Row title="Action Thrillers" movies={actionMovies} />
+          {/* MY LIST WILL GO HERE */}
+          <Row title="Comedies" movies={comedyMovies} />
+          <Row title="Scary Movies" movies={horrorMovies} />
+          <Row title="Romance Movies" movies={romanceMovies} />
+          <Row title="Documentaries" movies={documentaries} />
+        </section>
       </main>
       {/* MODAL */}
     </div>
