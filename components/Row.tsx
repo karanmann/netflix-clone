@@ -28,8 +28,12 @@ const Row = ({ title, movies }: Props) => {
         {title}
       </h2>
       <div className="relative group md:-ml-2">
-        <ChevronLeftIcon
+        {/* <ChevronLeftIcon
           className={`chevronButton left-2 ${!isMoved && "hidden"}`}
+          onClick={() => handleChevronClick("left")}
+        /> */}
+        <ChevronLeftIcon
+          className={`chevronButton left-2`}
           onClick={() => handleChevronClick("left")}
         />
         <div
