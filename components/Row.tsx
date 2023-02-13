@@ -11,17 +11,20 @@ interface Props {
 
 const Row = ({ title, movies }: Props) => {
   const rowRef = useRef<HTMLDivElement>(null);
-  const [isMoved, setIsMoved] = useState(false)
+  const [isMoved, setIsMoved] = useState(false);
 
   const handleChevronClick = (direction: string) => {
-    setIsMoved(true)
+    setIsMoved(true);
 
-    if(rowRef.current) {
-      const {scrollLeft, clientWidth} = rowRef.current
-      const scrollTo = direction === "left" ? scrollLeft - clientWidth : scrollLeft + clientWidth
+    if (rowRef.current) {
+      const { scrollLeft, clientWidth } = rowRef.current;
+      const scrollTo =
+        direction === "left"
+          ? scrollLeft - clientWidth
+          : scrollLeft + clientWidth;
       rowRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
     }
-  }
+  };
   return (
     <div className="h-40 space-y-0.5 md:space-y-2">
       <h2 className="w-56 cursor-pointer text-sm font-semibold text-[#e5e5e5] transition duration-200 hover:text-white md:text-2xl">
