@@ -25,7 +25,7 @@ const Header = () => {
     <header className={`${isScrolled && "bg-[#141414]"}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
         <img
-          src="https://rb.gy/ulxxee"
+          src="images/logo/Netflix_2015_logo.svg"
           width={100}
           height={100}
           alt="netflix"
@@ -45,7 +45,7 @@ const Header = () => {
         <BellIcon className="w-6 h-6" />
         <Link href="/account">
           <img
-            src="https://rb.gy/g1pwyx"
+            src="images/logo/avatar.png"
             alt="user"
             className="rounded cursor-pointer"
           />
