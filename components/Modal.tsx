@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import MuiModal from "@mui/material/Modal";
 import { useRecoilState } from "recoil";
-import { modalState } from "../atoms/modalAtoms";
+import { modalState, movieState } from "../atoms/modalAtoms";
 import { XIcon } from "@heroicons/react/outline";
 import { Movie } from "../typings";
 
 const Modal = () => {
   const [showModal, setShowModal] = useRecoilState(modalState);
-  const [movie, setMovie] = useState<Movie | null>(null);
+  const [movie, setMovie] = useRecoilState(movieState);
   const [data, setData] = useState();
 
   useEffect(() => {
