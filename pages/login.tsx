@@ -29,7 +29,7 @@ const Login = () => {
   return (
     <div className="relative flex flex-col w-screen h-screen bg-black md:items-center md:justify-center md:bg-transpartent">
       <Head>
-        <title>Netflix</title>
+        <title>Netflix Clone</title>
         <link rel="+icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <Image
