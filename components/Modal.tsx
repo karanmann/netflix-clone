@@ -3,12 +3,14 @@ import MuiModal from "@mui/material/Modal";
 import { useRecoilState } from "recoil";
 import { modalState, movieState } from "../atoms/modalAtoms";
 import { XIcon } from "@heroicons/react/outline";
-import { Movie } from "../typings";
+import { Genre, Element } from "../typings";
+import { element } from "prop-types";
 
 const Modal = () => {
   const [showModal, setShowModal] = useRecoilState(modalState);
   const [movie, setMovie] = useRecoilState(movieState);
-  const [data, setData] = useState();
+  const [trailer, setTrailer] = useState();
+  const [genres, setGenres] = useState<Genre[]>([]);
 
   useEffect(() => {
     if (!movie) return;
@@ -23,18 +25,27 @@ const Modal = () => {
       )
         .then((response) => response.json())
         .catch((err) => console.log(err.message));
-      console.log(data);
-      setData(data);
+
+      if (data?.videos) {
+        const index = data.videos.results.findIndex(
+          (element: Element) => element.type === "Trailer"
+        );
+        setTrailer(data.videos?.results[index]?.key);
+      }
+
+      if (data?.genres) {
+        setGenres(data.genres);
+      }
     };
+
     fetchMovie();
   }, [movie]);
-
-  console.log(data);
 
   const handleClose = () => {
     setShowModal(false);
   };
 
+  console.log(trailer);
   return (
     <MuiModal open={showModal} onClick={handleClose}>
       <>
