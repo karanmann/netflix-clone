@@ -1,5 +1,13 @@
 # Next.js + Tailwind CSS Example
 
+
+www-widgetapi.js:1119 Failed to execute 'postMessage' on 'DOMWindow': The target origin provided ('https://www.youtube.com') does not match the recipient window's origin ('http://localhost:3000').
+
+This is called cross origin resource sharing and it is a warning in case a website does not permit you to display their content on a different website. Fortunately, youtube does allow you to use their videos. On my end, it looks like the warning is due to their ad-embedded content. The content should otherwise work.
+
+
+https://codesandbox.io/s/stack-react-player-youtube-iygks?file=/src/App.js
+
 This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
 ## Deploy your own
