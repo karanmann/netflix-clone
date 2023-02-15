@@ -121,7 +121,7 @@ const Modal = () => {
               <div className="flex flex-col space-y-3 text-sm">
                 <div>
                   <span className="text-[gray]">Genres:</span>{' '}
-                  {genres.map((genre) => genre.name).join(', ')}
+                  {genres.map((genre, index) => <p>{genre.name }{index === genres.length - 1 ? '.' : index === genres.length - 2 ? ' &' : ','}</p>)}s
                 </div>
 
                 <div>
