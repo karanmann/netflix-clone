@@ -2,7 +2,7 @@ import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useAuth } from '../hooks/useAuth'
+import { useAuth } from "../hooks/useAuth";
 
 interface Inputs {
   email: string;
@@ -12,25 +12,29 @@ interface Inputs {
 const Login = () => {
   const [login, setLogin] = useState(false);
 
-  const { signIn, signUp} = useAuth()
+  const { signIn, signUp } = useAuth();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = async ({email, password}) => {
+  const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
     if (login) {
-      await signIn(email, password)
+      await signIn(email, password);
     } else {
-      await signUp(email, password)
+      await signUp(email, password);
     }
-  }
+  };
   return (
     <div className="relative flex flex-col w-screen h-screen bg-black md:items-center md:justify-center md:bg-transpartent">
       <Head>
         <title>Netflix Clone</title>
         <link rel="+icon" href="/favicon.ico" type="image/x-icon" />
+        <meta
+          name="google-site-verification"
+          content="E728mv7tVj8QeQ50feBRGXZXQk6b_qBMe37tt1sLFbc"
+        />
       </Head>
       <Image
         src="/images/background/login-background.jpeg"
@@ -49,7 +53,7 @@ const Login = () => {
       />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="relative mt-24 space-y-8 rounded bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
+        className="relative px-6 py-10 mt-24 space-y-8 rounded bg-black/75 md:mt-0 md:max-w-md md:px-14"
       >
         <h1 className="text-4xl font-semibold">Sign In</h1>
         <div className="space-y-4">
@@ -84,14 +88,17 @@ const Login = () => {
             )}
           </label>
         </div>
-        <button className="w-full rounded bg-[#e50914] py-3 font-semibold" onClick={() => setLogin(true)}>
+        <button
+          className="w-full rounded bg-[#e50914] py-3 font-semibold"
+          onClick={() => setLogin(true)}
+        >
           Sign In
         </button>
         <div className="text-[gray]">
           New to Netflix?{" "}
           <button
             type="submit"
-            className="cursor-pointer text-white hover:underline"
+            className="text-white cursor-pointer hover:underline"
             onClick={() => setLogin(false)}
           >
             Sign up now

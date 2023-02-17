@@ -40,6 +40,10 @@ const Home = ({
       <Head>
         <title>Netflix-Clone - Home</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="google-site-verification"
+          content="E728mv7tVj8QeQ50feBRGXZXQk6b_qBMe37tt1sLFbc"
+        />
       </Head>
       <Header />
       <main className="relative pb-24 pl-4 lg:space-y-24 lg:pl-16">
