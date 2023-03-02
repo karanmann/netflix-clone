@@ -103,6 +103,11 @@ const Login = () => {
           >
             Sign up now
           </button>
+          <div>
+            
+            <p>Test Username : k@m.com</p>
+            <p>Test Password : 123456</p>
+          </div>
         </div>
       </form>
     </div>
